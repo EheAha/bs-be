@@ -1,15 +1,8 @@
 const mongoose = require('../utils/database')
 
 // 创建Schema，创建集合
-// const positionSchema = new mongoose.Schema({
-//     companyLogo: String,
-//     companyName: String,
-//     positionName: String,
-//     city: String,
-//     salary: String,
-//     createDate: String
-// })
 const positionSchema = new mongoose.Schema({
+    movieId: String,
     movieLogo: String,
     movieName: String,
     movieScore: String,

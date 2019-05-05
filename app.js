@@ -7,7 +7,8 @@ var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var positionRouter = require('./routes/position')
+var positionRouter = require('./routes/position');
+var orderRouter = require('./routes/order');
 
 var app = express();
 
@@ -37,7 +38,8 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 
 // 开发接口
-app.use('/api/position', positionRouter)
+app.use('/api/position', positionRouter);
+app.use('/api/order', orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -146,11 +146,36 @@ const userupdate = async (res, req, next) => {
     }
 }
 
+const save = async (req, res, next) => {
+    res.header('Content-Type', 'application/json; charset=utf-8')
+    let result = await userModel.save({
+        ...req.body,
+        createDate: moment().format('YYYY-MM-DD HH:mm')
+    })
+    if (!!result) {
+        res.render('position', {
+            ret: true,
+            data: JSON.stringify({
+                msg: '数据保存成功 :)'
+            })
+        })
+    } else {
+        res.render('position', {
+            ret: false,
+            data: JSON.stringify({
+                msg: '数据保存失败 :('
+            })
+        })
+    }
+}
+
+
 module.exports = {
     register,
     signin,
     isSignin,
     signout,
     findone,
-    userupdate
+    userupdate,
+    save
 }
